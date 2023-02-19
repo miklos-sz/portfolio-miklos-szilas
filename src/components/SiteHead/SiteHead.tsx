@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-const SiteHead = () => {
+const SiteHead = (): JSX.Element => {
   return (
     <Head>
       <title>Miklós Szilas</title>

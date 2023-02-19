@@ -1,4 +1,4 @@
-import SiteHead from '@/SiteHead/SiteHead';
+import SiteHead from '@/components/SiteHead/SiteHead';
 
 interface LayoutProps {
   children: React.ReactNode;
