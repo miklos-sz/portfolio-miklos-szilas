@@ -1,4 +1,5 @@
 import SiteHead from '@/components/SiteHead/SiteHead';
+import Container from '../Container/Container';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -8,7 +9,9 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SiteHead />
-      <main>{children}</main>
+      <Container>
+        <main>{children}</main>
+      </Container>
     </>
   );
 };

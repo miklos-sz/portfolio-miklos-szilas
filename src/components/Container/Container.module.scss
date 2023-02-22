@@ -1,0 +1,29 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/variables/breakpoints' as breakpoints;
+
+$gutter: 1rem;
+
+.container {
+  width: 100%;
+  margin: auto;
+
+  @include mixins.media(sm) {
+    max-width: breakpoints.$md-min - 1;
+    padding: 0 $gutter * 0.5 0 $gutter * 0.5;
+  }
+
+  @include mixins.media(md) {
+    max-width: breakpoints.$lg-min - 1;
+    padding: 0 $gutter 0 $gutter;
+  }
+
+  @include mixins.media(lg) {
+    max-width: breakpoints.$xl-min - 1;
+    padding: 0 $gutter 0 $gutter;
+  }
+
+  @include mixins.media-up(xl) {
+    max-width: breakpoints.$xl-min;
+    padding: 0 $gutter 0 $gutter;
+  }
+}
