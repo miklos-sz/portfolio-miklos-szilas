@@ -1,0 +1,13 @@
+@use '../../styles/variables/colors' as colors;
+
+.hero {
+  h1,
+  .content b {
+    color: colors.$primary;
+  }
+
+  h4 {
+    color: colors.$secondary;
+    padding-bottom: 1rem;
+  }
+}
