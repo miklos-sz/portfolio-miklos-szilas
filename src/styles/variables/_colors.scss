@@ -1,0 +1,32 @@
+// colors
+
+$teal: #227c70;
+$navy: #1c315e;
+$blue-zodiac: #101f40;
+$white: #ffffff;
+$black: #000000;
+$gray: #343434;
+
+$colors: (
+  teal: $teal,
+  navy: $navy,
+  blue-zodiac: $blue-zodiac,
+  white: $white,
+  black: $black,
+  gray: $gray,
+);
+
+// brand colors
+$primary: $teal;
+$secondary: $navy;
+$light: $white;
+$dark: $blue-zodiac;
+
+$brand-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  light: $light,
+  dark: $dark,
+);
+
+$body-bg-color: $white;

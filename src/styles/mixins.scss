@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use 'sass:color';
+@use './variables/breakpoints';
+@use './variables/colors';
+
+@mixin media-down($breakpoint) {
+  @media screen and (max-width: map.get(breakpoints.$breakpoints-max, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin media-up($breakpoint) {
+  @media screen and (min-width: map.get(breakpoints.$breakpoints-min, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin media($breakpoint) {
+  @media screen and (min-width: map.get(breakpoints.$breakpoints-min, $breakpoint)) and (max-width: map.get(breakpoints.$breakpoints-max, $breakpoint)) {
+    @content;
+  }
+}
+
+@mixin media-between($breakpoint-start, $breakpoint-end) {
+  @media screen and (min-width: map.get(breakpoints.$breakpoints-min, $breakpoint-start)) and (max-width: map.get(breakpoints.$breakpoints-max, $breakpoint-end)) {
+    @content;
+  }
+}
+
+@mixin box-shadow-base {
+  box-shadow: 0 2px 6px color.adjust(colors.$gray-3, $alpha: -0.85);
+}
+
+@mixin box-shadow-top {
+  box-shadow: 0 -2px 6px color.adjust(colors.$gray-3, $alpha: -0.85);
+}
