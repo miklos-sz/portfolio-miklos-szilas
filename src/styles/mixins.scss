@@ -1,7 +1,7 @@
 @use 'sass:map';
 @use 'sass:color';
-@use './variables/breakpoints';
-@use './variables/colors';
+@use 'variables/breakpoints';
+@use 'variables/colors';
 
 @mixin media-down($breakpoint) {
   @media screen and (max-width: map.get(breakpoints.$breakpoints-max, $breakpoint)) {

@@ -28,6 +28,29 @@ export const pageQueryBySlug = (slug: string) => {
           }
         }
       }
+      heroCollection(where: {appearsOnPage: "${slug}"}) {
+        items {
+          title
+          subtitle
+          content {
+            json
+          }
+          image {
+            url
+            width
+            height
+            title
+            description
+          }
+          imageMobile {
+            url
+            width
+            height
+            title
+            description
+          }
+        }
+      }
     }
   `;
 };

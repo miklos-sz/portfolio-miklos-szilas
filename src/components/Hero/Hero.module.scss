@@ -1,0 +1,77 @@
+@use 'variables/colors' as colors;
+@import 'mixins';
+
+.hero {
+  color: colors.$dark;
+
+  @include media-up(lg) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 1rem;
+  }
+
+  h1,
+  .content b {
+    color: colors.$primary;
+  }
+
+  h1,
+  .content,
+  .subtitle {
+    @include media-down(md) {
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+
+  h1 {
+    margin-left: -0.3rem;
+  }
+
+  .subtitle {
+    font-weight: 600;
+    color: colors.$secondary;
+
+    @include media-down(md) {
+      font-size: 1.25rem;
+    }
+
+    @include media-up(lg) {
+      padding-bottom: 1rem;
+      font-size: 1.75rem;
+    }
+  }
+
+  .content {
+    width: 85%;
+  }
+
+  .image {
+    display: flex;
+    justify-content: flex-end;
+
+    &-mobile {
+      max-width: 12.5rem;
+      height: auto;
+      padding: 1.5rem 0;
+
+      @include media-down(sm) {
+        width: 100%;
+      }
+
+      @include media-down(md) {
+        width: 50%;
+        margin: 0 auto;
+      }
+    }
+
+    &-desktop {
+      width: 100%;
+      height: auto;
+
+      @include media-up(md) {
+        margin-top: 6rem;
+      }
+    }
+  }
+}
