@@ -1,3 +1,4 @@
+import Header from 'components/Header/Header';
 import SiteHead from 'components/SiteHead/SiteHead';
 
 interface LayoutProps {
@@ -8,6 +9,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SiteHead />
+      <Header />
       <main>{children}</main>
     </>
   );

@@ -1,0 +1,22 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables/globals' as globalVariables;
+@use 'styles/variables/colors' as colors;
+
+.header {
+  background-color: colors.$body-bg-color;
+
+  &.scrolled {
+    @include mixins.box-shadow-base;
+
+    position: sticky;
+    top: 0;
+    transition: box-shadow 0.3s ease-out;
+    z-index: globalVariables.$z-index-3;
+  }
+
+  .inner-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
