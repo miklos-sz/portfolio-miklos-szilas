@@ -1,6 +1,6 @@
-import { pageQueryBySlug, pagesQuery } from '@/queries/pages';
-import { Page } from '@/types/pages';
-import { client } from '@/utils/gqlClient';
+import { pageQueryBySlug, pagesQuery } from 'queries';
+import { Page } from 'types';
+import { client } from 'utils/gqlClient';
 import { ParsedUrlQuery } from 'querystring';
 
 interface IParams extends ParsedUrlQuery {

@@ -1,20 +1,18 @@
 @use 'sass:map';
 
 $sm-min: 0; // mobile
-$md-min: 640px; // tablet
-$lg-min: 960px; // desktop
-$xl-min: 1140px;
+$md-min: 460px; // large mobile
+$lg-min: 760px; // tablet
+$lg-max: 992px; // desktop
 
 $breakpoints-min: (
   sm: $sm-min,
   md: $md-min,
   lg: $lg-min,
-  xl: $xl-min,
 );
 
 $breakpoints-max: (
   sm: $md-min - 1px,
   md: $lg-min - 1px,
-  lg: $xl-min - 1px,
-  xl: 100%,
+  lg: 992px,
 );

@@ -1,8 +1,7 @@
-import Hero from '@/components/Hero/Hero';
-import { pageQueryBySlug } from '@/queries/pages';
-import { Page as PageType } from '@/types/pages';
-import { HeroType } from '@/types/hero';
-import { client } from '@/utils/gqlClient';
+import Hero from 'components/Hero/Hero';
+import { pageQueryBySlug } from 'queries';
+import { HeroType, Page as PageType } from 'types';
+import { client } from 'utils/gqlClient';
 
 export const getStaticProps = async () => {
   const data = await client.request(pageQueryBySlug('home'));
@@ -24,7 +23,7 @@ interface HomeProps {
 const Home = ({ page: { title }, hero }: HomeProps) => {
   return (
     <>
-      <Hero data={hero} />
+      <Hero hero={hero} title={title} />
     </>
   );
 };

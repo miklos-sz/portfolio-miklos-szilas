@@ -37,6 +37,17 @@ export const pageQueryBySlug = (slug: string) => {
           }
           image {
             url
+            width
+            height
+            title
+            description
+          }
+          imageMobile {
+            url
+            width
+            height
+            title
+            description
           }
         }
       }
