@@ -1,0 +1,100 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables/globals' as globalVariables;
+@use 'styles/variables/colors' as colors;
+
+.header {
+  padding: 1rem 0;
+  background-color: colors.$body-bg-color;
+
+  &.scrolled {
+    @include mixins.box-shadow-base;
+
+    position: sticky;
+    top: 0;
+    transition: box-shadow 0.3s ease-out;
+    z-index: globalVariables.$z-index-3;
+
+    .logo {
+      @include mixins.media-up(sm) {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      &-title {
+        @include mixins.media-up(sm) {
+          color: colors.$primary;
+        }
+      }
+    }
+  }
+
+  .inner-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1.5rem;
+
+    ul {
+      padding: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      ul {
+        display: flex;
+        justify-content: space-between;
+        gap: 1.5rem;
+
+        li {
+          a {
+            position: relative;
+            font-weight: 600;
+            color: colors.$secondary;
+
+            &::after {
+              position: absolute;
+              left: 0;
+              bottom: 0;
+              width: 0;
+              transition: width 0.2s ease-out;
+              height: 0.125rem;
+              background: colors.$primary;
+              transition: width 0.2s ease-out;
+              content: '';
+            }
+
+            &:hover {
+              &::after {
+                width: 100%;
+                transition: width 0.2s ease-out;
+                content: '';
+              }
+            }
+
+            @include mixins.media-down(sm) {
+              font-size: 1rem;
+            }
+
+            @include mixins.media-up(md) {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1rem;
+    }
+  }
+}

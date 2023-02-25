@@ -19,6 +19,22 @@ export interface ImageType {
   description?: string;
 }
 
+export interface NavItemType {
+  title: string;
+  slug: string;
+}
+export interface NavItemsType {
+  items: NavItemType[];
+}
+
+export interface HeaderType {
+  logo: ImageType;
+  nav: NavItemsType;
+  socialCollection: {
+    items: ImageType[];
+  };
+}
+
 export interface HeroType {
   title: string;
   subtitle?: string;

@@ -1,5 +1,8 @@
 import { Html, Head, Main, NextScript } from 'next/document';
+// import { headerQuery } from 'queries';
+// import { client } from 'utils/gqlClient';
 
+// export const getStaticProps = async () => {
 const Document = () => {
   return (
     <Html lang="en">
@@ -11,5 +14,6 @@ const Document = () => {
     </Html>
   );
 };
+// };
 
 export default Document;

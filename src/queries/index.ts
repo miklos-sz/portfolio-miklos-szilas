@@ -6,6 +6,7 @@ export const pagesQuery = gql`
       items {
         title
         slug
+
         description
         sys {
           id
@@ -51,6 +52,53 @@ export const pageQueryBySlug = (slug: string) => {
           }
         }
       }
+      headerCollection {
+        items {
+          logo {
+            url
+            width
+            height
+            title
+            description
+          }
+          nav
+          socialCollection {
+            items {
+              url
+              width
+              height
+              title
+              description
+            }
+          }
+        }
+      }
     }
   `;
 };
+
+export const headerQuery = gql`
+  {
+    headerCollection {
+      items {
+        logo {
+          url
+          width
+          height
+          title
+          description
+        }
+        nav
+        socialCollection {
+          items {
+            url
+            width
+            height
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`;
