@@ -1,6 +1,7 @@
+import Container from 'components/Container/Container';
 import Hero from 'components/Hero/Hero';
 import { pageQueryBySlug } from 'queries';
-import { HeroType, Page as PageType } from 'types';
+import { HeaderType, HeroType, Page as PageType } from 'types';
 import { client } from 'utils/gqlClient';
 
 export const getStaticProps = async () => {
@@ -10,6 +11,7 @@ export const getStaticProps = async () => {
     props: {
       page: data.pageCollection.items[0],
       hero: data.heroCollection.items[0],
+      header: data.headerCollection.items[0],
     },
     revalidate: 10,
   };
@@ -18,9 +20,11 @@ export const getStaticProps = async () => {
 interface HomeProps {
   page: PageType;
   hero: HeroType;
+  header: HeaderType;
+  headerData: (data: any) => void;
 }
 
-const Home = ({ page: { title }, hero }: HomeProps) => {
+const Home = ({ page: { title }, hero, header, headerData }: HomeProps) => {
   return (
     <>
       <Hero hero={hero} title={title} />

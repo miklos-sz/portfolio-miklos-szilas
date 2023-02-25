@@ -9,7 +9,6 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <SiteHead />
-      <Header />
       <main>{children}</main>
     </>
   );
