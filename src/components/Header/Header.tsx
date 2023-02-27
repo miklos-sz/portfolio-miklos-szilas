@@ -1,4 +1,5 @@
 import classNames from 'classnames';
+import Brand from 'components/Brand/Brand';
 import Container from 'components/Container/Container';
 import useScrollPosition from 'hooks/useScrollPosition';
 import { useIsDesktop } from 'hooks/useViewport';
@@ -17,6 +18,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
   const [headerData, setHeaderData] = useState<HeaderType | null>(null);
   const verticalScrollPosition = useScrollPosition();
   const isDesktop = useIsDesktop();
+  const isScrolled = verticalScrollPosition > 0;
 
   useEffect(() => {
     setHeaderData(data);
@@ -32,23 +34,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
       <Container>
         <div className={styles['inner-wrapper']}>
           {headerData?.logo.url && (
-            <div>
-              <Link href="/" className={styles.logo}>
-                <Image
-                  src={headerData?.logo.url}
-                  alt={headerData?.logo.title || siteTitle}
-                  width={headerData?.logo.width}
-                  height={headerData?.logo.height}
-                />
-                {isDesktop &&
-                  verticalScrollPosition > 0 &&
-                  headerData.logo.title && (
-                    <h4 className={styles['logo-title']}>
-                      {headerData?.logo.title}
-                    </h4>
-                  )}
-              </Link>
-            </div>
+            <Brand logo={headerData.logo} showTitle={isDesktop && isScrolled} />
           )}
           {headerData?.nav.items.length && (
             <nav>

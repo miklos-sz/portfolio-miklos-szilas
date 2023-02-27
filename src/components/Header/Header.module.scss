@@ -13,20 +13,6 @@
     top: 0;
     transition: box-shadow 0.3s ease-out;
     z-index: globalVariables.$z-index-3;
-
-    .logo {
-      @include mixins.media-up(sm) {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-
-      &-title {
-        @include mixins.media-up(sm) {
-          color: colors.$primary;
-        }
-      }
-    }
   }
 
   .inner-wrapper {
