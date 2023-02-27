@@ -15,7 +15,7 @@ export interface ImageType {
   url: string;
   width: number;
   height: number;
-  title?: string;
+  title: string;
   description?: string;
 }
 

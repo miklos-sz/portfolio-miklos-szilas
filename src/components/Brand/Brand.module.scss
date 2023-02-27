@@ -1,0 +1,19 @@
+@use 'styles/mixins' as mixins;
+@use 'styles/variables/colors' as colors;
+
+.brand {
+  &,
+  .logo {
+    @include mixins.media-up(sm) {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  .title {
+    @include mixins.media-up(sm) {
+      color: colors.$primary;
+    }
+  }
+}
