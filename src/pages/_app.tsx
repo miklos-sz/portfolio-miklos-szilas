@@ -8,7 +8,7 @@ const App = ({ Component, pageProps }: AppProps) => {
 
   return (
     <Layout>
-      <Header data={header} siteTitle={page.title} />
+      <Header data={header} siteTitle={'cica'} />
       <Component {...pageProps} />
     </Layout>
   );
