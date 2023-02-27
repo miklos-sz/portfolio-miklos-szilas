@@ -1,7 +1,7 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import classNames from 'classnames';
 import Container from 'components/Container/Container';
-import useIsDesktop from 'hooks/useIsMobile';
+import { useIsDesktop } from 'hooks/useViewport';
 import Image from 'next/image';
 import { HeroType, ImageType } from 'types';
 import styles from './Hero.module.scss';
@@ -53,6 +53,7 @@ const Hero = ({
               type={'mobile'}
             />
           )}
+
           {content && (
             <div className={styles.content}>
               {documentToReactComponents(content?.json)}

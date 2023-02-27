@@ -45,3 +45,8 @@ export interface HeroType {
   imageMobile?: ImageType;
   appearsOnPage?: string;
 }
+
+export type ViewportType = {
+  width: number | undefined;
+  name: 'mobile' | 'largeMobile' | 'tablet' | 'desktop' | undefined;
+};

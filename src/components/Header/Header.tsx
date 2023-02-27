@@ -1,10 +1,10 @@
 import classNames from 'classnames';
 import Container from 'components/Container/Container';
-import useIsDesktop from 'hooks/useIsMobile';
 import useScrollPosition from 'hooks/useScrollPosition';
+import { useIsDesktop } from 'hooks/useViewport';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderType, ImageType, NavItemType } from 'types';
 import styles from './Header.module.scss';
 
@@ -15,9 +15,8 @@ export interface HeaderProps {
 
 const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
   const [headerData, setHeaderData] = useState<HeaderType | null>(null);
-  const isDesktop = useIsDesktop();
   const verticalScrollPosition = useScrollPosition();
-  const h1Position = 120;
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     setHeaderData(data);
@@ -42,7 +41,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
                   height={headerData?.logo.height}
                 />
                 {isDesktop &&
-                  verticalScrollPosition >= h1Position &&
+                  verticalScrollPosition > 0 &&
                   headerData.logo.title && (
                     <h4 className={styles['logo-title']}>
                       {headerData?.logo.title}
@@ -72,9 +71,9 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
                 (image: ImageType, index: number) => {
                   const linkUrl = image.description ?? null;
                   return (
-                    <>
+                    <React.Fragment key={index}>
                       {linkUrl && (
-                        <li key={index}>
+                        <li>
                           <Link href={linkUrl} target="_blank">
                             <Image
                               src={image.url}
@@ -85,7 +84,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
                           </Link>
                         </li>
                       )}
-                    </>
+                    </React.Fragment>
                   );
                 },
               )}
