@@ -7,7 +7,7 @@ import { useIsDesktop } from 'hooks/useViewport';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
-import { HeaderType, ImageType, NavItemType } from 'types';
+import { HeaderType, ImageType } from 'types';
 import styles from './Header.module.scss';
 
 export interface HeaderProps {
@@ -35,35 +35,38 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
     >
       <Container>
         <div className={styles['inner-wrapper']}>
-          {headerData?.logo.url && (
+          {headerData?.logo && headerData?.logo.url && (
             <Brand logo={headerData.logo} showTitle={isDesktop && isScrolled} />
           )}
-          {headerData?.nav.items.length && <Nav headerData={headerData} />}
-          {headerData?.socialCollection.items.length && (
-            <ul className={styles.social}>
-              {headerData.socialCollection.items.map(
-                (image: ImageType, index: number) => {
-                  const linkUrl = image.description ?? null;
-                  return (
-                    <React.Fragment key={index}>
-                      {linkUrl && (
-                        <li>
-                          <Link href={linkUrl} target="_blank">
-                            <Image
-                              src={image.url}
-                              alt={image.title ?? siteTitle}
-                              width={image.width}
-                              height={image.height}
-                            />
-                          </Link>
-                        </li>
-                      )}
-                    </React.Fragment>
-                  );
-                },
-              )}
-            </ul>
+          {headerData?.nav && headerData?.nav.items.length && (
+            <Nav headerData={headerData} />
           )}
+          {headerData?.socialCollection &&
+            headerData?.socialCollection.items.length && (
+              <ul className={styles.social} data-testid="social">
+                {headerData.socialCollection.items.map(
+                  (image: ImageType, index: number) => {
+                    const linkUrl = image.description ?? null;
+                    return (
+                      <React.Fragment key={index}>
+                        {linkUrl && (
+                          <li>
+                            <Link href={linkUrl} target="_blank">
+                              <Image
+                                src={image.url}
+                                alt={image.title ?? siteTitle}
+                                width={image.width}
+                                height={image.height}
+                              />
+                            </Link>
+                          </li>
+                        )}
+                      </React.Fragment>
+                    );
+                  },
+                )}
+              </ul>
+            )}
         </div>
       </Container>
     </header>

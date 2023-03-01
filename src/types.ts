@@ -28,9 +28,9 @@ export interface NavItemsType {
 }
 
 export interface HeaderType {
-  logo: ImageType;
-  nav: NavItemsType;
-  socialCollection: {
+  logo?: ImageType;
+  nav?: NavItemsType;
+  socialCollection?: {
     items: ImageType[];
   };
 }
