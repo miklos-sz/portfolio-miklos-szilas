@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import Brand from 'components/Brand/Brand';
 import Container from 'components/Container/Container';
 import Nav from 'components/Nav/Nav';
+import Social from 'components/Social/Social';
 import useScrollPosition from 'hooks/useScrollPosition';
 import { useIsDesktop } from 'hooks/useViewport';
 import Image from 'next/image';
@@ -43,29 +44,10 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
           )}
           {headerData?.socialCollection &&
             headerData?.socialCollection.items.length && (
-              <ul className={styles.social} data-testid="social">
-                {headerData.socialCollection.items.map(
-                  (image: ImageType, index: number) => {
-                    const linkUrl = image.description ?? null;
-                    return (
-                      <React.Fragment key={index}>
-                        {linkUrl && (
-                          <li>
-                            <Link href={linkUrl} target="_blank">
-                              <Image
-                                src={image.url}
-                                alt={image.title ?? siteTitle}
-                                width={image.width}
-                                height={image.height}
-                              />
-                            </Link>
-                          </li>
-                        )}
-                      </React.Fragment>
-                    );
-                  },
-                )}
-              </ul>
+              <Social
+                items={headerData?.socialCollection.items}
+                siteTitle={siteTitle}
+              />
             )}
         </div>
       </Container>
