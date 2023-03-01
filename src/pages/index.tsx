@@ -1,7 +1,7 @@
 import Container from 'components/Container/Container';
 import Hero from 'components/Hero/Hero';
 import { pageQueryBySlug } from 'queries';
-import { HeaderType, HeroType, Page as PageType } from 'types';
+import { HeaderType, HeroType, PageType as PageType } from 'types';
 import { client } from 'utils/gqlClient';
 
 export const getStaticProps = async () => {
