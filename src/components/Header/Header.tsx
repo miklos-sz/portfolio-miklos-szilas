@@ -30,6 +30,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
       className={classNames(styles.header, {
         [styles.scrolled]: useScrollPosition(),
       })}
+      data-testid="header"
     >
       <Container>
         <div className={styles['inner-wrapper']}>

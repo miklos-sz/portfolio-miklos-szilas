@@ -1,5 +1,5 @@
 import { pageQueryBySlug, pagesQuery } from 'queries';
-import { Page } from 'types';
+import { PageType } from 'types';
 import { client } from 'utils/gqlClient';
 import { ParsedUrlQuery } from 'querystring';
 
@@ -36,7 +36,7 @@ export const getStaticProps = async (context: any) => {
 };
 
 interface HomeProps {
-  page: Page;
+  page: PageType;
 }
 
 const Home = ({ page: { description, title } }: HomeProps) => {

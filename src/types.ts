@@ -1,4 +1,4 @@
-export interface Page {
+export interface PageType {
   slug: string;
   title: string;
   description?: string;
@@ -7,8 +7,8 @@ export interface Page {
   };
 }
 
-export interface Pages {
-  items: [pages: Page];
+export interface PagesType {
+  items: [pages: PageType];
 }
 
 export interface ImageType {
