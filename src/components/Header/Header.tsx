@@ -1,6 +1,7 @@
 import classNames from 'classnames';
 import Brand from 'components/Brand/Brand';
 import Container from 'components/Container/Container';
+import Nav from 'components/Nav/Nav';
 import useScrollPosition from 'hooks/useScrollPosition';
 import { useIsDesktop } from 'hooks/useViewport';
 import Image from 'next/image';
@@ -37,21 +38,7 @@ const Header = ({ data, siteTitle }: HeaderProps): JSX.Element => {
           {headerData?.logo.url && (
             <Brand logo={headerData.logo} showTitle={isDesktop && isScrolled} />
           )}
-          {headerData?.nav.items.length && (
-            <nav>
-              <ul>
-                {headerData?.nav.items.map(
-                  (item: NavItemType, index: number) => {
-                    return (
-                      <li key={index}>
-                        <Link href={item.slug}>{item.title}</Link>
-                      </li>
-                    );
-                  },
-                )}
-              </ul>
-            </nav>
-          )}
+          {headerData?.nav.items.length && <Nav headerData={headerData} />}
           {headerData?.socialCollection.items.length && (
             <ul className={styles.social}>
               {headerData.socialCollection.items.map(

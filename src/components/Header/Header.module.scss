@@ -27,55 +27,6 @@
     a {
       text-decoration: none;
     }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      ul {
-        display: flex;
-        justify-content: space-between;
-        gap: 1.5rem;
-
-        li {
-          a {
-            position: relative;
-            font-weight: 600;
-            color: colors.$secondary;
-
-            &::after {
-              position: absolute;
-              left: 0;
-              bottom: 0;
-              width: 0;
-              transition: width 0.2s ease-out;
-              height: 0.125rem;
-              background: colors.$primary;
-              transition: width 0.2s ease-out;
-              content: '';
-            }
-
-            &:hover {
-              &::after {
-                width: 100%;
-                transition: width 0.2s ease-out;
-                content: '';
-              }
-            }
-
-            @include mixins.media-down(sm) {
-              font-size: 1rem;
-            }
-
-            @include mixins.media-up(md) {
-              font-size: 1.5rem;
-            }
-          }
-        }
-      }
-    }
-
     .social {
       display: flex;
       align-items: center;
