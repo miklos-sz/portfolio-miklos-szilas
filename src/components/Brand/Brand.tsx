@@ -11,7 +11,7 @@ interface BrandProps {
 
 const Brand = ({ logo, showTitle, link }: BrandProps) => {
   return (
-    <div className={styles.brand}>
+    <div className={styles.brand} data-testid="brand">
       <Link href={link ?? '/'} className={styles.logo}>
         <Image
           src={logo.url}
