@@ -10,13 +10,14 @@ const Nav = ({ headerData }: NavProps): JSX.Element => {
   return (
     <nav data-testid="nav" className={styles.nav}>
       <ul>
-        {headerData?.nav.items.map((item: NavItemType, index: number) => {
-          return (
-            <li key={index}>
-              <Link href={item.slug}>{item.title}</Link>
-            </li>
-          );
-        })}
+        {headerData?.nav &&
+          headerData?.nav.items.map((item: NavItemType, index: number) => {
+            return (
+              <li key={index}>
+                <Link href={item.slug}>{item.title}</Link>
+              </li>
+            );
+          })}
       </ul>
     </nav>
   );
