@@ -11,9 +11,9 @@ const ContentSection = ({
   children,
 }: ContentProps): JSX.Element => {
   return (
-    <Container>
-      <section className={`bg-${bgColorVariant}`}>{children}</section>
-    </Container>
+    <section className={`bg-${bgColorVariant}`}>
+      <Container>{children}</Container>
+    </section>
   );
 };
 
