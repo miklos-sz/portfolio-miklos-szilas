@@ -29,6 +29,39 @@ export const pageQueryBySlug = (slug: string) => {
           }
         }
       }
+    }
+  `;
+};
+
+export const headerQuery = gql`
+  {
+    headerCollection {
+      items {
+        logo {
+          url
+          width
+          height
+          title
+          description
+        }
+        nav
+        socialCollection {
+          items {
+            url
+            width
+            height
+            title
+            description
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const heroQueryByLocation = (slug: string) => {
+  return gql`
+    {
       heroCollection(where: {appearsOnPage: "${slug}"}) {
         items {
           title
@@ -52,44 +85,25 @@ export const pageQueryBySlug = (slug: string) => {
           }
         }
       }
-      headerCollection {
-        items {
-          logo {
-            url
-            width
-            height
-            title
-            description
-          }
-          nav
-          socialCollection {
-            items {
-              url
-              width
-              height
-              title
-              description
-            }
-          }
-        }
-      }
-    }
-  `;
+    }`;
 };
 
-export const headerQuery = gql`
+export const skillsQuery = gql`
   {
-    headerCollection {
+    skillCollection {
       items {
-        logo {
+        title
+        titleIcon {
           url
           width
           height
           title
           description
         }
-        nav
-        socialCollection {
+        description {
+          json
+        }
+        iconsCollection {
           items {
             url
             width

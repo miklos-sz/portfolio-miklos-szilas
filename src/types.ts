@@ -39,7 +39,7 @@ export interface HeroType {
   title: string;
   subtitle?: string;
   content?: {
-    json: any;
+    json: JSON;
   };
   image?: ImageType;
   imageMobile?: ImageType;
@@ -50,3 +50,20 @@ export type ViewportType = {
   width: number | undefined;
   name: 'mobile' | 'largeMobile' | 'tablet' | 'desktop' | undefined;
 };
+
+export type BrandColors = 'primary' | 'secondary' | 'light' | 'dark';
+
+export type SkillType = {
+  title: string;
+  titleIcon: ImageType;
+  description: {
+    json: JSON;
+  };
+  iconsCollection: {
+    items: ImageType[];
+  };
+};
+
+export type SkillsType = SkillType[];
+
+export type ContentsType = SkillsType; // to be extended as union, when new content types implemented
