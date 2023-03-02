@@ -20,6 +20,8 @@ $colors: (
   gray-3: $gray-3,
 );
 
+$body-bg-color: $white;
+
 // brand colors
 $primary: $teal;
 $secondary: $navy;
@@ -33,4 +35,13 @@ $brand-colors: (
   dark: $dark,
 );
 
-$body-bg-color: $white;
+// dynamic utility classes
+@each $key, $value in $brand-colors {
+  .color-#{$key} {
+    color: #{$value} !important;
+  }
+
+  .bg-#{$key} {
+    background-color: #{$value} !important;
+  }
+}
